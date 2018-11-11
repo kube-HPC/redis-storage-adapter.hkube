@@ -18,5 +18,13 @@ describe('etcd', () => {
             const result = await redis.get(res);
             expect(result).to.deep.equal(data);
         });
+        it('should set a key and then get the same key - result', async () => {
+            const jobId = uuidv4();
+            const taskId = uuidv4();
+            const data = { data: 'yes' };
+            const res = await redis.putResults({ jobId, data });
+            const result = await redis.get(res);
+            expect(result).to.deep.equal(data);
+        });
     });
 });

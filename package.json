@@ -15,19 +15,19 @@
   "author": "Nassi Harel",
   "license": "ISC",
   "dependencies": {
-    "@hkube/redis-utils": "^1.0.2",
-    "djsv": "^3.0.3",
-    "uuid": "^3.2.1"
+    "@hkube/redis-utils": "^1.0.3",
+    "djsv": "^3.0.5",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.0",
-    "eslint": "^4.18.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.14.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^5.0.1",
-    "sinon": "^4.3.0"
+    "mocha": "^5.2.0",
+    "sinon": "^4.5.0"
   }
 }
