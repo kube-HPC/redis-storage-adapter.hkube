@@ -1,11 +1,12 @@
 
 const { expect } = require('chai');
 const redis = require('../index');
-const sinon = require('sinon');
 const uuidv4 = require('uuid/v4');
-let etcd;
+const moment = require('moment');
+const path = require('path');
+const DateFormat = 'YYYY-MM-DD';
 
-describe('etcd', () => {
+describe('redis', () => {
     beforeEach(() => {
         redis.init({ host: 'localhost', port: 6379 });
     });
@@ -14,15 +15,14 @@ describe('etcd', () => {
             const jobId = uuidv4();
             const taskId = uuidv4();
             const data = { data: 'yes' };
-            const res = await redis.put({ jobId, taskId, data });
+            const res = await redis.put({ Path: path.join('hkube', moment().format(DateFormat), jobId, taskId), Data: data });
             const result = await redis.get(res);
             expect(result).to.deep.equal(data);
         });
         it('should set a key and then get the same key - result', async () => {
             const jobId = uuidv4();
-            const taskId = uuidv4();
             const data = { data: 'yes' };
-            const res = await redis.putResults({ jobId, data });
+            const res = await redis.put({ Path: path.join('hkube-results', moment().format(DateFormat), jobId), Data: data });
             const result = await redis.get(res);
             expect(result).to.deep.equal(data);
         });
