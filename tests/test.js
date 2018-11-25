@@ -15,14 +15,14 @@ describe('redis', () => {
             const jobId = uuidv4();
             const taskId = uuidv4();
             const data = { data: 'yes' };
-            const res = await redis.put({ Path: path.join('hkube', moment().format(DateFormat), jobId, taskId), Data: data });
+            const res = await redis.put({ path: path.join('hkube', moment().format(DateFormat), jobId, taskId), data });
             const result = await redis.get(res);
             expect(result).to.deep.equal(data);
         });
         it('should set a key and then get the same key - result', async () => {
             const jobId = uuidv4();
             const data = { data: 'yes' };
-            const res = await redis.put({ Path: path.join('hkube-results', moment().format(DateFormat), jobId), Data: data });
+            const res = await redis.put({ path: path.join('hkube-results', moment().format(DateFormat), jobId), data });
             const result = await redis.get(res);
             expect(result).to.deep.equal(data);
         });
