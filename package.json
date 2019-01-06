@@ -1,6 +1,6 @@
 {
   "name": "@hkube/redis-storage-adapter",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "redis-storage-adapter",
   "main": "index.js",
   "scripts": {
