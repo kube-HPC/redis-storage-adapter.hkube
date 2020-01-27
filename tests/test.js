@@ -1,11 +1,11 @@
 
 const { expect } = require('chai');
-const redis = require('../index');
+const RedisAdapter = require('../index');
 const uuidv4 = require('uuid/v4');
 const moment = require('moment');
 const path = require('path');
 const DateFormat = 'YYYY-MM-DD';
-
+const redis = new RedisAdapter();
 describe('redis', () => {
     beforeEach(() => {
         redis.init({ host: 'localhost', port: 6379 });
